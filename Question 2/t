@@ -1,1 +1,153 @@
+✅ Functional Component Example:
+jsx
+Copy
+Edit
+function Welcome() {
+  return <h1>Hello, React!</h1>;
+}
+
+
+✅ useState (for managing state):
+jsx
+Copy
+Edit
+import { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+  return (
+    <>
+      <h1>{count}</h1>
+      <button onClick={() => setCount(count + 1)}>Increase</button>
+    </>
+  );
+}
+
+
+✅ useEffect (runs code when component loads or updates):
+jsx
+Copy
+Edit
+import { useEffect, useState } from 'react';
+
+function Timer() {
+  const [time, setTime] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => setTime(t => t + 1), 1000);
+    return () => clearInterval(interval); // cleanup
+  }, []);
+
+  return <p>{time} seconds passed.</p>;
+}
+
+
+
+✅ Using fetch():
+jsx
+Copy
+Edit
+import { useEffect, useState } from 'react';
+
+function Posts() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/posts')
+      .then(res => res.json())
+      .then(data => setPosts(data.slice(0, 5)));
+  }, []);
+
+  return (
+    <ul>
+      {posts.map(post => (
+        <li key={post.id}>{post.title}</li>
+      ))}
+    </ul>
+  );
+} 
+
+
+
+
+✅ Handling a form in React:
+jsx
+Copy
+Edit
+import { useState } from 'react';
+
+function ContactForm() {
+  const [name, setName] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert("Name submitted: " + name);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input type="text" value={name}
+             onChange={(e) => setName(e.target.value)} />
+      <button type="submit">Submit</button>
+    </form>
+  );
+} 
+
+
+
+
+✅ Array methods:
+js
+Copy
+Edit
+const nums = [1, 2, 3, 4];
+
+// map
+const squares = nums.map(n => n * n);
+
+// filter
+const evens = nums.filter(n => n % 2 === 0);
+
+// reduce
+const sum = nums.reduce((acc, val) => acc + val, 0);
+✅ Sample JS Problems:
+js
+Copy
+Edit
+// 1. Reverse a string
+function reverseString(str) {
+  return str.split('').reverse().join('');
+}
+
+// 2. Remove duplicates from array
+function removeDuplicates(arr) {
+  return [...new Set(arr)];
+}
+
+
+
+
+✅ Basic commands:
+bash
+Copy
+Edit
+git init
+git add .
+git commit -m "initial commit"
+git remote add origin https://github.com/<your-username>/<repo-name>.git
+git push -u origin master
+✅ .gitignore example:
+bash
+Copy
+Edit
+node_modules/
+.DS_Store
+.env
+
+
+
+
+
+
+
 
